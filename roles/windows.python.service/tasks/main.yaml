@@ -1,0 +1,12 @@
+---
+- name: Copy Python script
+  copy: 
+    src: ./{{service_name}}.py
+    dest: ~/application.py
+    mode: u+rw,g-wx,o-rwx
+- name: Install Python script as a service
+  command: nssm install {{service_name}} ~/{{service_name}}.py
+- name: Install Python script as a service
+  command: nssm set {{service_name}} AppDirectory ~/
+- name: Redirect stdout to a log file
+  command: nssm set {{service_name}} AppStdOut ~/{{service_name}}.log

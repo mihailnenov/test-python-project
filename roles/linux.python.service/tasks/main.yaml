@@ -1,0 +1,8 @@
+---
+- name: Copy Python script
+  copy: 
+    src: ./{{service_name}}.py
+    dest: ~/{{service_name}}.py
+    mode: u+rw,g-wx,o-rwx
+- name: Start Python scripts as a service
+  command: /bin/bash -c "nohup python ~/{{service_name}}.py > ~/{

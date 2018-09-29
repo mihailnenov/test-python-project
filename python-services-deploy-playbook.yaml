@@ -1,0 +1,11 @@
+- hosts: linux-hosts
+  user: python-service-runner
+  roles:
+        - role: linux.python.service
+        - when: "{{service_name}}" == "{{deploy_service_name}}"
+
+- hosts: windows-hosts
+  roles:
+        - role: windows.python.service
+        - when: "{{service_name}}" == "{{deploy_service_name}}" 
+

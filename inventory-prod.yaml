@@ -5,21 +5,25 @@ all:
   children:
     linux-hosts:
       children:
-        python-service-1: 
+        python-service-1:
+          vars:
+            service_name: service-1
           hosts:
-            ptseelm-lx4740.ikeadt.com:
+            ptseelm-lx4740.prod-domain.com:
               host_specific_var1: varValue
-            ptseelm-lx4741.ikeadt.com:
+            ptseelm-lx4741.prod-domain.com:
               host_specific_var1: varValue
       vars:
         linux_specific_var1: varValue
     windows-hosts:
       children:
         python-service-2:
+          vars:
+            service_name: service-2        
           hosts:
-            ptseelm-lx4740.ikeadt.com:
+            ptseelm-lx4740.prod-domain.com:
               host_specific_var1: varValue
-            ptseelm-lx4741.ikeadt.com:
+            ptseelm-lx4741.prod-domain.com:
               host_specific_var1: varValue
       vars:
         windows_specific_var1: varValue
