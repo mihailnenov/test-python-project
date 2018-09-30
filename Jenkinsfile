@@ -20,7 +20,7 @@ def deployToEnv(environment) {
          
          ansible-playbook /opt/ansible/provision-python/python-services-deploy-playbook.yaml \
                 -i /opt/ansible/provision-python/inventory-${environment}.yaml \
-                --extra-vars "deploy_service_name"
+                --extra-vars "deploy_service_name=${JOB_NAME/deploy-//}"
          
          # If this is a test deploy we need to
          [[ ${version} == test ]] && git tag release-${BUILD_NUMBER} && git push --tags
